@@ -54,7 +54,7 @@ var ctrlTextJSON = {
 var au8test = function(done) {
     ntpClient.getNetworkTime("pool.ntp.org", 123, function(err, ntp_date) {
         sys_date = new Date()
-        if(sys_date.getTime().toPrecision(11) === ntp_date.getTime().toPrecision(11)) {
+        if(sys_date.getTime().toPrecision(10) === ntp_date.getTime().toPrecision(10)) {
             done()
         } else {
             throw new Error(err + " ntp server not responding or not sync'd, please check configuration" + " system time " + sys_date.getTime().toPrecision(11) + " ntp time " + ntp_date.getTime().toPrecision(11))
