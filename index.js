@@ -51,7 +51,7 @@ var ctrlTextJSON = {
     }
 }
 //Control Families
-var au8test = function() {
+var au8test = function(done) {
     ntpClient.getNetworkTime("pool.ntp.org", 123, function(err, ntp_date) {
         sys_date = new Date()
         if(sys_date.getTime().toPrecision(11) === ntp_date.getTime().toPrecision(11)) {
