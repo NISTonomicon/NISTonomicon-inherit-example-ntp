@@ -1,0 +1,31 @@
+{
+  "name": "nistonomicon-ntp",
+  "version": "1.0.0",
+  "description": "this is an example implementation of a NISTonomicon inheritable module",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hortinstein/NISTonomicon-inherit-example-ntp.git"
+  },
+  "keywords": [
+    "NISTonomicon"
+  ],
+  "author": "hortinstein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hortinstein/NISTonomicon-inherit-example-ntp/issues"
+  },
+  "homepage": "https://github.com/hortinstein/NISTonomicon-inherit-example-ntp",
+  "devDependencies": {
+    "nistonomicon": "^0.1.1"
+  },
+  "dependencies": {
+    "ntp-client": "^0.5.3"
+  }
+}
