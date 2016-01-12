@@ -3,6 +3,10 @@ var pre = require('mocha').before;
 var assertions = require('mocha').it;
 var assert = require('assert');
 var ntpClient = require('ntp-client');
+
+////////////////////////////////////////
+///////ONLY NOTED HERE FOR DETAIL///////
+////////////////////////////////////////
 var ctrlTextJSON = {
     "family": "AUDIT AND ACCOUNTABILITY",
     "number": "AU-8",
@@ -50,8 +54,14 @@ var ctrlTextJSON = {
         }]
     }
 }
+
+////////////////////////////////////////
+///////ONLY NOTED HERE FOR DETAIL///////
+////////////////////////////////////////
+
+
 //Control Families
-var au8test = function() {
+var au8f = function(done) {
     ntpClient.getNetworkTime("pool.ntp.org", 123, function(err, ntp_date) {
         sys_date = new Date()
         if(sys_date.getTime().toPrecision(11) === ntp_date.getTime().toPrecision(11)) {
@@ -60,6 +70,15 @@ var au8test = function() {
             throw new Error(err + " ntp server not responding or not sync'd, please check configuration" + " system time " + sys_date.getTime().toPrecision(11) + " ntp time " + ntp_date.getTime().toPrecision(11))
         }
     })
+}
+
+var au8metadata = {
+    "implementation": "This control is checked by checking to see if the local system is configured to be within an acceptable latency of the ntp server"
+}
+
+var au8test = {
+    f: au8f,
+    metadata: au8metadata
 }
 
 module.exports = {'AU_8':au8test}
